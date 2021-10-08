@@ -14,10 +14,12 @@ df = (df[['Countries and regions', 'Percentage of population with 1+ dose', 'Dos
 
 #Used this to see the columns avaialble in the table
 columns = df.columns
-print(f'The following table contains data related to covid 19. The data consists of the following columns ')
 
+print()
+print(f'Track your Covid vaccine administration around the world ')
+print()
 
-question = int(input(" To view complete table press 1, To filter data press 2, For general info press 3 to exit press 0: "))
+question = int(input(" View complete Data - PRESS ONE, filter Data - PRESS 2, General info - Press 3: "))
 
 print()
 count=0
@@ -33,19 +35,27 @@ elif question == 2:
 
     while option != 0:
 
+        print()
+
         print('1. Countries and regions')
         print('2. Percentage of population with +1 dose')
         print('3. Doses administered')
         print('4. Percentage of population fully vaccinated')
 
+        print()
+
         option = int (input('Show top data based on one of the below. Please insert number: '))
 
 #filter information bases on countries
         if option == 1:
+            print()
             dp = df.rename(columns={"Countries and regions": "countries"})
             name = (input('Type name of country: ')).capitalize()
+            print()
             country = dp.query(f"countries == '{name}'")
             print (country)
+
+            print()
 
 #top countries with the highest percentage of population with 1+ doses
         elif option == 2:
